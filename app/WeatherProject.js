@@ -73,8 +73,12 @@ export default class WeatherProject extends Component {
 const baseFontSize = 16;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", paddingTop: 30 },
-  backdrop: { flex: 1, flexDirection: "column" },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    paddingTop: 30
+  },
+  backdrop: { flex: 1, flexDirection: "column", alignSelf: "stretch" },
   overlay: {
     paddingTop: 5,
     backgroundColor: "#000000",
@@ -90,7 +94,6 @@ const styles = StyleSheet.create({
   },
   zipContainer: {
     height: baseFontSize + 10,
-    width: 100,
     borderBottomColor: "#DDDDDD",
     borderBottomWidth: 1,
     marginLeft: 5,
