@@ -58,6 +58,7 @@ export default class WeatherProject extends Component {
                   style={[styles.zipCode, styles.mainText]}
                   onSubmitEditing={this._handleTextChange}
                   underlineColorAndroid="transparent"
+                  keyboardType="number-pad"
                 />
               </View>
             </View>
