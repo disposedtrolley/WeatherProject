@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
   TextInput,
   ImageBackground
 } from "react-native";
@@ -44,7 +45,7 @@ export default class WeatherProject extends Component {
     }
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <ImageBackground
           source={require("./assets/flowers.png")}
           style={styles.backdrop}
@@ -63,7 +64,7 @@ export default class WeatherProject extends Component {
             {content}
           </View>
         </ImageBackground>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
   },
   zipContainer: {
     height: baseFontSize + 10,
+    width: 100,
     borderBottomColor: "#DDDDDD",
     borderBottomWidth: 1,
     marginLeft: 5,
