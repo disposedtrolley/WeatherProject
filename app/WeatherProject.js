@@ -11,7 +11,8 @@ export default class WeatherProject extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			zip: ""
+			zip: "",
+			forecast: null
 		}
 	}
 
