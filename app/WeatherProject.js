@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ImageBackground
+} from "react-native";
 import Forecast from "./Forecast";
 import OpenWeatherMap from "./vendor/open_weather_map";
 
@@ -39,35 +45,54 @@ export default class WeatherProject extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>You input {this.state.zip}.</Text>
-        {content}
-        <TextInput
-          style={styles.input}
-          onSubmitEditing={this._handleTextChange}
-        />
+        <ImageBackground
+          source={require("./assets/flowers.png")}
+          style={styles.backdrop}
+        >
+          <View style={styles.overlay}>
+            <View style={styles.row}>
+              <Text style={styles.mainText}>Current weather for</Text>
+              <View style={styles.zipContainer}>
+                <TextInput
+                  style={[styles.zipCode, styles.mainText]}
+                  onSubmitEditing={this._handleTextChange}
+                  underlineColorAndroid="transparent"
+                />
+              </View>
+            </View>
+            {content}
+          </View>
+        </ImageBackground>
       </View>
     );
   }
 }
 
+const baseFontSize = 16;
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#666666"
+  container: { flex: 1, alignItems: "center", paddingTop: 30 },
+  backdrop: { flex: 1, flexDirection: "column" },
+  overlay: {
+    paddingTop: 5,
+    backgroundColor: "#000000",
+    opacity: 0.5,
+    flexDirection: "column",
+    alignItems: "center"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "flex-start",
+    padding: 30
   },
-  input: {
-    fontSize: 20,
-    borderWidth: 2,
-    padding: 2,
-    height: 40,
-    width: 100,
-    textAlign: "center"
-  }
+  zipContainer: {
+    height: baseFontSize + 10,
+    borderBottomColor: "#DDDDDD",
+    borderBottomWidth: 1,
+    marginLeft: 5,
+    marginTop: 3
+  },
+  zipCode: { flex: 1, flexBasis: 1, width: 50, height: baseFontSize },
+  mainText: { fontSize: baseFontSize, color: "#FFFFFF" }
 });
